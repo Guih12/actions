@@ -1,0 +1,12 @@
+name: ci-golang-worflow
+on: [push]
+jobs:
+  check-application:
+    runs-on: ubuntu-latest
+    steps:
+       - uses: actions/checkou@v2
+       - uses: actions/setup-go@v2
+         with:
+          go-verstion: 1.15
+       - run: go test
+       - run: go run math.go 
