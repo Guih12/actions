@@ -3,12 +3,12 @@ on:
   pull_request:
     branches:
        - develop
-strategy:
-  matrix:
-    go: ['1.14', '1.15', '1.75'] #versões da linguagem
 jobs:
   check-application: #nome do job
-    runs-on: ubuntu-latest #qual ambiente ele irá rodar -> aqui escolhemos o github
+    runs-on: ubuntu-latest #qual ambiente ele irá rodar -> aqui escolhemos o 
+    strategy:
+      matrix:
+        go: ['1.14', '1.15', '1.17']
     steps: #definimos quais são os passos
       - uses: actions/checkout@v2 #aqui definimos as depedências que iremos usar
       - uses: actions/setup-go@v2
